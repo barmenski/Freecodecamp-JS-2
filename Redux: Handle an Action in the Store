@@ -1,0 +1,54 @@
+//в предыдущих главах:
+
+//Объявили action
+//let action={
+//type: 'LOGIN'
+//}
+//Объявили actionGenerator
+//function actionCreator() {
+//  return action;
+//}
+//Объявили reducer
+//const reducer = (state = defaultState, action) => {
+//if (action.type==="LOGIN"){
+//  return Object.assign({}, state, {
+//   login: true
+//  })
+//} else {
+//  return state
+//}
+//Объявили store
+//const store = Redux.createStore(reducer);
+//Взяли состояние
+//const currentState=store.getState();
+//Отправили action в store
+//store.dispatch(loginAction());
+
+
+const defaultState = {
+  login: false
+};
+
+const reducer = (state = defaultState, action) => {
+//тоже самое if(typeof state==="undefined") {
+//return defaultState
+//}
+
+  // Change code below this line
+if (action.type==="LOGIN"){
+  return Object.assign({}, state, {
+    login: true
+  })
+} else {
+  return state
+}
+  // Change code above this line
+};
+
+const store = Redux.createStore(reducer);
+
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
